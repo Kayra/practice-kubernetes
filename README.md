@@ -2,7 +2,7 @@
 
 This is a collection of notes and examples written while roughly following [Nana's Kubernetes Crach Course](https://www.youtube.com/watch?v=s_o8dwzRlu4) and the [Kubernetes official documentation](https://kubernetes.io/docs/home/).
 
-## Compontents
+## **Components**
 
 ### Pod
 
@@ -45,7 +45,7 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 * Can be referenced in Deployments/Pods
 * **WARNING**: Anyone with API/etcd access can retrieve or modify a Secret
 * **WARNING**: Anyone authorised to create a Pod in a namespace can use that access to read any Secret in that namespace, including indirect access such as deployment permissions
-* The follwing steps should be followed to safely use Secrets:
+* The following steps should be followed to safely use Secrets:
   * Enable encryption at rest for Secrets
   * Enable or configure RBAC rules that restrict reading data in Secrets
   * Enable or configure RBAC mechanisms to limit which principles are allowed to create new Secrets or replace existing ones
@@ -55,7 +55,7 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 **<u>Volumes attaches a physical storage to a Pod.</u>**
 
 * Can be local (kubernetes cluster) or remote (on-prem, cloud, etc)
-* **WARNING**: Kubernetes doesn't manage data persistence. The Administerator is responsible for things like:
+* **WARNING**: Kubernetes doesn't manage data persistence. The Administrator is responsible for things like:
   * Back ups
   * Replication
 
@@ -80,7 +80,7 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 
 <u>**A DaemonSet is a resource manager that ensures nodes have a certain set of Pods as a minimum.**</u>
 
-* Often used to ensure utility nodes are always available on pods (logging nodes, monitoring nodes, persistant storage nodes, etc)
+* Often used to ensure utility nodes are always available on pods (logging nodes, monitoring nodes, persistent storage nodes, etc)
 * Self garbage collecting
 
 ## Architecture
