@@ -43,7 +43,7 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 
 * Persists configuration data in base64 (by default store unencrypted in the Kubernetes API server's underlying data store etcd).
 * Can be referenced in Deployments/Pods
-* **WARNING**: Anyone with API/etcd)access can retrieve or modify a Secret
+* **WARNING**: Anyone with API/etcd access can retrieve or modify a Secret
 * **WARNING**: Anyone authorised to create a Pod in a namespace can use that access to read any Secret in that namespace, including indirect access such as deployment permissions
 * The follwing steps should be followed to safely use Secrets:
   * Enable encryption at rest for Secrets
@@ -78,22 +78,32 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 
 ### DaemonSet
 
+<u>**A DaemonSet is a resource manager that ensures nodes have a certain set of Pods as a minimum.**</u>
+
+* Often used to ensure utility nodes are always available on pods (logging nodes, monitoring nodes, persistant storage nodes, etc)
+* Self garbage collecting
+
 ## Architecture
 
 A Kubernetes cluster is made up of master nodes and worker nodes, connected by a virtual network.
 
+![](./docs/kubernetes_high_level_architecture.drawio.png)
+
 Worker nodes are generally bigger and designed to handle high workloads:
 
-* Kublet (kubernetes process) - Allows cross node communication
-* Application container(s) (Usually Docker) - Runs application
+* **Kublet (kubernetes process)** - Allows cross node communication
+* **Application container(s) (Usually Docker)** - Runs application
 
-Master node are generally smaller and only run a handful or master processes:
+Master nodes are generally smaller and only run a handful or master processes:
 
-* API server - Entrypoint to the cluster (UI, API, CLI)
-* Controller manager - Maintains the cluster (Repairs/restarts containers)
-* Scheduler - Scales up and down worker nodes based on load
-* etcd - Kubernetes persistent store for configuration data and node/container data (backup and restore can use this as a snapshot to generate new cluster)
+* **API server** - Entrypoint to the cluster (UI, API, CLI)
+* **Controller manager** - Maintains the cluster (Repairs/restarts containers)
+* **Scheduler** - Scales up and down worker nodes based on load
+* **etcd** - Kubernetes persistent store for configuration data and node/container data (backup and restore can use this as a snapshot to generate new cluster)
 
 Virtual network:
 
-* Links the Kubernetes cluster to create one unified machine
+* Links the Kubernetes cluster to create "one unified machine"
+
+
+
