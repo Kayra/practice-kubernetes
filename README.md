@@ -105,5 +105,11 @@ Virtual network:
 
 * Links the Kubernetes cluster to create "one unified machine"
 
+## Useful Commands
 
+Base64 encode string in the terminal (for secrets):
+
+```bash
+echo -n string_to_encode | base64
+```
 
