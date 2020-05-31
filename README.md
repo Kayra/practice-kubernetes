@@ -2,6 +2,11 @@
 
 This is a collection of notes and examples written while roughly following [Nana's Kubernetes Crach Course](https://www.youtube.com/watch?v=s_o8dwzRlu4) and the [Kubernetes official documentation](https://kubernetes.io/docs/home/).
 
+Technologies used:
+
+* minikube: 1.25.1
+* docker: 20.10.11
+
 ## **Components**
 
 ### Pod
@@ -105,7 +110,47 @@ Virtual network:
 
 * Links the Kubernetes cluster to create "one unified machine"
 
+## Start the cluster locally
+
+Start minikube:
+
+```bash
+start minikube
+```
+
+Create the configmap:
+
+```bash
+kubectl apply -f demo-node-mongodb-application/mongo-config.yaml
+```
+
+Create the secret:
+
+```bash
+kubectl apply -f demo-node-mongodb-application/mongo-secret.yaml
+```
+
+Create the mongo-db deployment and service:
+
+```bash
+kubectl apply -f demo-node-mongodb-application/mongo.yaml
+```
+
+Create the web-app deployment and service:
+
+```bash
+kubectl apply -f demo-node-mongodb-application/webapp.yaml
+```
+
+
+
 ## Useful Commands
+
+Get all kubernetes components:
+
+```bash
+kubectl get all
+```
 
 Base64 encode string in the terminal (for secrets):
 
