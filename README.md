@@ -110,7 +110,7 @@ Virtual network:
 
 * Links the Kubernetes cluster to create "one unified machine"
 
-## Start the cluster locally
+## Start the demo cluster locally
 
 Start minikube:
 
@@ -142,7 +142,13 @@ Create the web-app deployment and service:
 kubectl apply -f demo-node-mongodb-application/webapp.yaml
 ```
 
+View the webapp in the browser:
 
+```bash
+minikube service webapp-service
+```
+
+Access the webapp in the browser at INTERNAL-IP:30100
 
 ## Useful Commands
 
@@ -169,6 +175,14 @@ Describe a kubernetes component (helpful for debugging):
 ```bash
 kubectl describe pod pod_name
 ```
+
+Stream the logs of a kubernetes component:
+
+```bash
+kubectl logs pod_name -f
+```
+
+
 
 Base64 encode string in the terminal (for secrets):
 
