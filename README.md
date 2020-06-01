@@ -146,10 +146,28 @@ kubectl apply -f demo-node-mongodb-application/webapp.yaml
 
 ## Useful Commands
 
-Get all kubernetes components:
+List all kubernetes components:
 
 ```bash
 kubectl get all
+```
+
+List kubernetes configmaps:
+
+```bash
+kubectl get configmap
+```
+
+List kubernetes secrets:
+
+```bash
+kubectl get secret
+```
+
+Describe a kubernetes component (helpful for debugging):
+
+```bash
+kubectl describe pod pod_name
 ```
 
 Base64 encode string in the terminal (for secrets):
