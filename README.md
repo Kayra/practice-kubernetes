@@ -148,8 +148,6 @@ View the webapp in the browser:
 minikube service webapp-service
 ```
 
-Access the webapp in the browser at INTERNAL-IP:30100
-
 ## Useful Commands
 
 List all kubernetes components:
@@ -181,8 +179,6 @@ Stream the logs of a kubernetes component:
 ```bash
 kubectl logs pod_name -f
 ```
-
-
 
 Base64 encode string in the terminal (for secrets):
 
