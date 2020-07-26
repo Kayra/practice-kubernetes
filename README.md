@@ -7,6 +7,28 @@ Technologies used:
 * minikube: 1.25.1
 * docker: 20.10.11
 
+## Architecture
+
+A Kubernetes cluster is made up of master nodes and worker nodes, connected by a virtual network.
+
+![](./docs/kubernetes_high_level_architecture.drawio.png)
+
+Worker nodes are generally bigger and designed to handle high workloads:
+
+* **Kublet (kubernetes process)** - Allows cross node communication
+* **Application container(s) (Usually Docker)** - Runs application
+
+Master nodes are generally smaller and only run a handful or master processes:
+
+* **API server** - Entrypoint to the cluster (UI, API, CLI)
+* **Controller manager** - Maintains the cluster (Repairs/restarts containers)
+* **Scheduler** - Scales up and down worker nodes based on load
+* **etcd** - Kubernetes persistent store for configuration data and node/container data (backup and restore can use this as a snapshot to generate new cluster)
+
+Virtual network:
+
+* Links the Kubernetes cluster to create "one unified machine"
+
 ## **Components**
 
 ### Pod
@@ -88,29 +110,7 @@ Because each pod has its own IP address and is expected to die at any moment (ep
 * Often used to ensure utility nodes are always available on pods (logging nodes, monitoring nodes, persistent storage nodes, etc)
 * Self garbage collecting
 
-## Architecture
-
-A Kubernetes cluster is made up of master nodes and worker nodes, connected by a virtual network.
-
-![](./docs/kubernetes_high_level_architecture.drawio.png)
-
-Worker nodes are generally bigger and designed to handle high workloads:
-
-* **Kublet (kubernetes process)** - Allows cross node communication
-* **Application container(s) (Usually Docker)** - Runs application
-
-Master nodes are generally smaller and only run a handful or master processes:
-
-* **API server** - Entrypoint to the cluster (UI, API, CLI)
-* **Controller manager** - Maintains the cluster (Repairs/restarts containers)
-* **Scheduler** - Scales up and down worker nodes based on load
-* **etcd** - Kubernetes persistent store for configuration data and node/container data (backup and restore can use this as a snapshot to generate new cluster)
-
-Virtual network:
-
-* Links the Kubernetes cluster to create "one unified machine"
-
-## Start the demo cluster locally
+## Start a demo cluster locally
 
 Start minikube:
 
